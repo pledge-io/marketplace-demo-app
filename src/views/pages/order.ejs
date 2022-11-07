@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/menu') %>
+    <section>
+      <div
+        class="mx-auto max-w-screen-md px-6 pb-8 border-solid border border-gray-200 border-t-0"
+      >
+        <%- include('../partials/back-button') %>
+        <div class="flex flex-col">
+          <div class="sticky top-0">
+            <div class="flex justify-between">
+              <div class="max-w-[35ch]">
+                <h1 class="text-2xl font-bold">Order summary</h1>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <!-- include order-status-card template -->
+            <%- include('../partials/order-status-card', { order: order }) %>
+          </div>
+          <div
+            class="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 mt-8"
+          >
+            <table class="min-w-full divide-y divide-gray-200">
+              <tbody class="divide-y divide-gray-200">
+                <tr class="bg-gray-100">
+                  <td
+                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900"
+                  >
+                    Sub total
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <%= order.price.currency %> <%= order.price.amount %>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                  >
+                    Fees
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    TODO
+                  </td>
+                </tr>
+                <tr class="bg-gray-100">
+                  <td
+                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                  >
+                    Total
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <%= order.price.currency %> <%= order.price.amount %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

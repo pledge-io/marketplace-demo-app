@@ -1,0 +1,23 @@
+<article class="rounded-xl border border-gray-200 bg-white mb-4 last:mb-0">
+  <div class="flex items-start p-6">
+    <a href="#" class="block shrink-0">
+      <img
+        alt="Image project <%= project.name %>"
+        class="h-14 w-14 rounded-lg object-cover"
+        src="<%= _.get(project, 'media.0') %>"
+      />
+    </a>
+    <div class="ml-4">
+      <h3 class="font-medium sm:text-lg"><%= project.name %></h3>
+      <p class="text-sm text-gray-700 line-clamp-2">
+        <%= project.description %>
+      </p>
+      <p class="text-sm text-gray-700 line-clamp-2 my-3">
+        Allocation: <%= project.allocation.percentage %>%
+      </p>
+      <div class="w-full">
+        <a class="text-lg" href="/projects/<%= project.id %>">View details</a>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/menu') %>
+    <section>
+      <div
+        class="mx-auto max-w-screen-md px-6 pb-8 border-solid border border-gray-200 border-t-0"
+      >
+        <%- include('../partials/back-button') %>
+        <div class="flex flex-row">
+          <div class="flex-grow">
+            <h1 class="font-medium leading-tight text-3xl mt-0 mb-2">
+              <%= portfolio.name %>
+            </h1>
+            <p class="text-sm font-medium text-gray-600">
+              <%= portfolio.currency %> <%= portfolio.price_per_kg %> per kg
+            </p>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="mt-4 mb-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4"
+            >
+              <span class="text-sm font-medium text-white">Buy Offsets</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col mt-8">
+          <h2 class="font-medium leading-tight text-lg mt-0 mb-6">
+            Projects included
+          </h2>
+          <% for (let project of projects) { %> <%-
+          include('../partials/project-card', { project }) %> <% } %>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

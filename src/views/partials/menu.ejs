@@ -1,0 +1,18 @@
+<div class="mx-auto max-w-screen-md py-5 border-solid border border-gray-200">
+  <ul class="flex justify-end">
+    <li class="mr-6">
+      <a
+        href="/"
+        class="<%= locals.url.indexOf('/orders') > -1 ? '' : 'text-blue' %>"
+        >Marketplace</a
+      >
+    </li>
+    <li class="mr-6">
+      <a
+        href="/orders"
+        class="<%= locals.url.indexOf('/orders') > -1 ? 'text-blue' : '' %>"
+        >Order history</a
+      >
+    </li>
+  </ul>
+</div>

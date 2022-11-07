@@ -1,0 +1,22 @@
+<div class="relative block border border-gray-200 rounded overflow-hidden">
+  <img
+    alt="Toy"
+    src="<%= _.get(portfolio, 'media.0') %>"
+    class="h-56 w-full object-cover"
+  />
+  <div class="p-6">
+    <h3 class="mt-1 text-lg font-bold truncate"><%= portfolio.name %></h3>
+    <p class="text-sm font-medium text-gray-600">
+      <%= portfolio.currency %> <%= portfolio.price_per_kg %> per kg
+    </p>
+    <button
+      type="button"
+      class="mt-4 mb-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4"
+    >
+      <span class="text-sm font-medium text-white">Buy Offsets</span>
+    </button>
+    <div class="w-full text-center">
+      <a class="text-lg" href="/portfolio/<%= portfolio.id %>">View details</a>
+    </div>
+  </div>
+</div>
