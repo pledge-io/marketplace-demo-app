@@ -6,6 +6,7 @@ import express from 'express'
 import createError from 'http-errors'
 import cookieParser from 'cookie-parser'
 import routes from './routes'
+import { setLocals } from './middleware';
 
 dotenv.config()
 
@@ -22,9 +23,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(routes)
+app.use('*', setLocals)
 
-app.get('/', (req, res) => res.redirect('/portfolios'))
+// routes
+app.get('/', (req, res) => res.redirect('/marketplace'))
+app.use(routes)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

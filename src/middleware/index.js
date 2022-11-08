@@ -1,0 +1,1 @@
+export { setLocals } from './locals';
