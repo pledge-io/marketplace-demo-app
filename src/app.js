@@ -1,5 +1,3 @@
-import * as dotenv from 'dotenv'
-
 import path from 'path'
 import logger from 'morgan'
 import express from 'express'
@@ -7,8 +5,6 @@ import createError from 'http-errors'
 import cookieParser from 'cookie-parser'
 import routes from './routes'
 import { setLocals } from './middleware';
-
-dotenv.config()
 
 const app = express()
 
