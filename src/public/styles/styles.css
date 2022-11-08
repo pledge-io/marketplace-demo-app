@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 html {
-  font: 14px 'Poppins', Helvetica, Arial, sans-serif;
+  font: 16px 'Poppins', Helvetica, Arial, sans-serif;
 }
 
 body {
-  padding: 50px;  
+  padding: 72px;  
 }
