@@ -2,9 +2,9 @@ import express from 'express'
 const router = express.Router()
 
 /* GET portfolios */
-router.get('/portfolios', function (req, res, next) {
+router.get('/marketplace', function (req, res, next) {
   const { baseUrl } = req
-  res.render('pages/portfolios', { baseUrl, portfolios: [] })
+  res.render('pages/marketplace', { baseUrl, portfolios: [{ name: 'PT 1' }, { name: 'PT 2' }, { name: 'PT 3' }, { name: 'PT 4' }] })
 })
 
 /* GET portfolio */
