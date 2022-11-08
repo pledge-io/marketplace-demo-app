@@ -9,7 +9,7 @@
     <h3 class="mt-1 text-lg font-bold">
       <%= portfolio.name %>
     </h3>
-    <p class="text-sm font-medium text-gray-600">$14.99</p>
+    <p class="text-sm font-medium text-gray-600">£<%= portfolio.price_per_kg %> per kg</p>
 
     <button
       type="button"
@@ -18,7 +18,7 @@
       <span class="text-sm font-medium text-white">Buy Offsets</span>      
     </button>
     <div class="w-full text-center">
-      <a class="text-lg underline" href="/portfolio">View details</a>
+      <a class="text-lg underline" href="/portfolio/<%= portfolio.id %>">View details</a>
     </div>
   </div>
 </div>
