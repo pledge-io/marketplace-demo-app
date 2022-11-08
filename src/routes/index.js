@@ -1,10 +1,5 @@
-import express from 'express'
+import portfolioRoutes from './portfolio'
+import projectRoutes from './project'
+import ordersRoutes from './order'
 
-const router = express.Router()
-
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'World' })
-})
-
-export default router
+export default [portfolioRoutes, projectRoutes, ordersRoutes]
