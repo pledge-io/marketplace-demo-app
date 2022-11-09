@@ -1,8 +1,10 @@
 import { pledgeApi } from '../services/pledge'
 
+const { PLEDGE_API_URL } = process.env
+
 export async function marketplaceController (req, res, next) {
   try {
-    const result = await pledgeApi.get('/portfolios', {
+    const result = await pledgeApi.get(`${PLEDGE_API_URL}/portfolios`, {
       params: {
         limit: 2,
         offset: 0
