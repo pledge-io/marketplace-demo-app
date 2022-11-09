@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  font: 16px 'Poppins', Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', Helvetica, Arial, sans-serif;
 }
 
 body {
