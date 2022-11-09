@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.8",
     "axios": "^1.1.3",
     "chalk": "^3.0.0",
     "cookie-parser": "^1.4.6",
