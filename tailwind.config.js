@@ -10,11 +10,16 @@ module.exports = {
     colors: {
       white: '#fff',
       blue: '#0569FF',
+      cornflower: '#D4F8FB',
       gray: {
+        100: '#F9F9F9',
         200: '#D2D1CE'
       }
     },
     extend: {}
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography')
+  ]
 }
