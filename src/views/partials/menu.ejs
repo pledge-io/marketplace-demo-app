@@ -3,12 +3,12 @@
 >
   <ul class="flex justify-end">
     <li class="mr-6">
-      <a class="text-blue-500 hover:text-blue-800 underline <%= locals.url === '/marketplace' ? 'text-blue cursor-default' : '' %>" href="/marketplace"
+      <a class="text-blue-500 hover:text-blue-800 underline <%= locals.url.indexOf('/orders') > -1 ? '' : 'text-blue' %>" href="/marketplace"
         >Marketplace</a
       >
     </li>
     <li class="mr-6">
-      <a class="text-blue-500 hover:text-blue-800 underline <%= locals.url === '/orders' ? 'text-blue cursor-default' : '' %>" href="/orders"
+      <a class="text-blue-500 hover:text-blue-800 underline <%= locals.url.indexOf('/orders') > -1 ? 'text-blue' : '' %>" href="/orders"
         >Order history</a
       >
     </li>
