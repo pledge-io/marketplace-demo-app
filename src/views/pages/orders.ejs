@@ -4,10 +4,69 @@
   <body>
     <%- include('../partials/menu') %>
     <section>
-      <div class="mx-auto max-w-screen-md px-4 pb-8 pt-20 border-solid border border-gray-200 border-t-0">
-        <h1 class="font-medium leading-tight text-3xl mt-0 mb-2">Order history</h1>
-        <div class="mt-8 grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2">
-          No orders
+      <div
+        class="mx-auto max-w-screen-md px-6 pb-8 pt-20 border-solid border border-gray-200 border-t-0"
+      >
+        <h1 class="font-medium leading-tight text-3xl mt-0 mb-2">
+          Order history
+        </h1>
+        <div
+          class="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 mt-8"
+        >
+          <table class="min-w-full divide-y divide-gray-200 text-sm">
+            <thead class="bg-gray-100">
+              <tr>
+                <th
+                  class="whitespace-nowrap px-4 py-5 text-left font-medium text-gray-900"
+                >
+                  ID
+                </th>
+                <th
+                  class="whitespace-nowrap px-4 py-5 text-left font-medium text-gray-900"
+                >
+                  CO₂e
+                </th>
+                <th
+                  class="whitespace-nowrap px-4 py-5 text-left font-medium text-gray-900"
+                >
+                  Amount
+                </th>
+                <th
+                  class="whitespace-nowrap px-4 py-5 text-left font-medium text-gray-900"
+                >
+                  Status
+                </th>
+                <th
+                  class="whitespace-nowrap px-4 py-5 text-left font-medium text-gray-900"
+                >
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <!-- loop orders -->
+              <% for (let order of orders) { %>
+                <tr class="even:bg-gray-100">
+                  <td class="sticky inset-y-0 left-0 px-4 py-5">
+                    <%= order.id %>
+                  </td>
+                  <td
+                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900"
+                  >
+                  <%= _.round(order.weight.value, 2) %> <%= order.weight.unit.toLowerCase() %>
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <%= order.price.currency %> <%= order.price.amount %>
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <%- include('../partials/order-status-tag', { status: order.status }) %>
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <a class="underline" href="/orders/<%= order.id %>">View details</a>
+                  </td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

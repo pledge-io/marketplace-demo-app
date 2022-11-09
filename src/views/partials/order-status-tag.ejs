@@ -1,0 +1,26 @@
+<!-- declare local variable statusColor and a switch statement -->
+<% let statusColor; %>
+<% switch (status) {
+  case 'QUOTED':
+  case 'PLACED':
+    statusColor = 'bg-yellow-100 text-brown-100';
+    break;
+  case 'COMPLETED':
+  case 'PAID':
+    statusColor = 'bg-green-100 text-green-500';
+    break;
+  case 'REJECTED':
+  case 'EXPIRED':    
+  case 'CANCELLED':
+    statusColor = 'bg-red-100 text-red-500';
+    break;
+  case 'PROCESSING':
+  default:
+    statusColor = 'bg-gray-100 text-gray-8500';
+    break;
+} %>
+
+
+<span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5 <%= statusColor %>">
+  <%= status.charAt(0).toUpperCase() + status.slice(1).toLowerCase() %>
+</span>
