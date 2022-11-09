@@ -13,3 +13,10 @@ export async function ordersController (req, res, next) {
 
   res.render('pages/orders', { orders })
 }
+
+export async function orderController (req, res, next) {
+  const response = await pledgeApi.get(`${PLEDGE_API_URL}/orders/${req.params.orderId}`)
+  const order = response.data
+
+  res.render('pages/order', { order })
+}
