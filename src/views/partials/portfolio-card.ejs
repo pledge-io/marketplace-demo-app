@@ -1,14 +1,14 @@
-<div class="relative block border border-gray-200">
+<div class="relative block border border-gray-200 rounded overflow-hidden">
   <img
     alt="Toy"
-    src="https://images.unsplash.com/photo-1603356033288-acfcb54801e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-    class="h-56 w-full object-contain"
+    src="<%= _.get(portfolio, 'media.0') %>"
+    class="h-56 w-full object-cover"
   />
 
   <div class="p-6">
     <h3 class="mt-1 text-lg font-bold truncate"><%= portfolio.name %></h3>
     <p class="text-sm font-medium text-gray-600">
-      £<%= portfolio.price_per_kg %> per kg
+      <%= portfolio.currency %> <%= portfolio.price_per_kg %> per kg
     </p>
     <button
       type="button"
