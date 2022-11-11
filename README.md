@@ -17,7 +17,17 @@ git clone https://github.com/stripe-samples/connect-onboarding-for-standard.git
 npm install
 ```
 
-3. Start development server
+3. Create a `.env` file in the root directory and add the following variables:
+```
+PLEDGE_API_KEY=TEST|LIVE API KEY
+PLEDGE_API_URL=TEST|LIVE URL
+```
+
+Test API URL (uses test data): https://api.pledge.io/test/v1.  
+Live API URL (uses production data): https://api.pledge.io/v1.  
+
+
+4. Start development server
 ```
 npm run dev
 ```
