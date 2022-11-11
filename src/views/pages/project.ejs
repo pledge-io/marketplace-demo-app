@@ -18,12 +18,12 @@
           </div>
           <div class="my-8">
             <span
-              class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5"
+              class="rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5"
             >
               <%= project.project_type.category %>
             </span>
             <span
-              class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5"
+              class="rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5"
             >
               <%= project.project_type.name %>
             </span>
@@ -87,11 +87,11 @@
                 <tbody class="divide-y divide-gray-200">
                   <tr class="bg-gray-100">
                     <td
-                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900"
+                      class="px-4 py-5 font-medium text-gray-900"
                     >
                       Mechanism
                     </td>
-                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <td class="px-4 py-5 text-gray-700">
                       <% if (project.removal && !project.avoidance) { %>
                       <span>CO₂e Removal</span>
                       <% } %> <% if (project.avoidance && !project.removal) { %>
@@ -103,21 +103,21 @@
                   </tr>
                   <tr>
                     <td
-                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                      class="px-4 py-5 font-medium text-gray-900 py-5"
                     >
                       Developer
                     </td>
-                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <td class="px-4 py-5 text-gray-700">
                       <p><%= project.developer.name %></p>
                     </td>
                   </tr>
                   <tr class="bg-gray-100">
                     <td
-                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                      class="px-4 py-5 font-medium text-gray-900 py-5"
                     >
                       Website
                     </td>
-                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                    <td class="px-4 py-5 text-gray-700">
                       <p>
                         <%=
                         project.website.substr(project.website.indexOf('://')+3)
@@ -137,12 +137,14 @@
                   </tr>
                   <tr class="bg-gray-100">
                     <td
-                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5 align-top	"
                     >
                       Sustainable Development Goals
                     </td>
-                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
-                      <p><%= project.sdgs %></p>
+                    <td class="px-4 py-5 text-gray-700">
+                      <p>
+                        <%= project.sdgs.map((sdg) => locals.SDGS_MAP[sdg]). join(', ') %>
+                      </p>
                     </td>
                   </tr>
                 </tbody>
