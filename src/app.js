@@ -3,8 +3,8 @@ import logger from 'morgan'
 import express from 'express'
 import createError from 'http-errors'
 import cookieParser from 'cookie-parser'
+import { setLocals } from './middleware'
 import routes from './routes'
-import { setLocals } from './middleware';
 
 const app = express()
 

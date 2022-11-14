@@ -9,14 +9,14 @@
     <p class="text-sm font-medium text-gray-600">
       <%= portfolio.currency %> <%= portfolio.price_per_kg %> per kg
     </p>
-    <button
-      type="button"
-      class="mt-4 mb-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4"
+    <a
+      href="/checkout/<%= portfolio.id %>"
+      class="mt-4 mb-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4 no-underline"
     >
       <span class="text-sm font-medium text-white">Buy Offsets</span>
-    </button>
+    </a>
     <div class="w-full text-center">
-      <a class="text-lg" href="/portfolio/<%= portfolio.id %>">View details</a>
+      <a class="text-lg" href="/portfolios/<%= portfolio.id %>">View details</a>
     </div>
   </div>
 </div>

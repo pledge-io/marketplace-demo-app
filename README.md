@@ -19,13 +19,9 @@ npm install
 
 3. Create a `.env` file in the root directory and add the following variables:
 ```
-PLEDGE_API_KEY=TEST|LIVE API KEY
-PLEDGE_API_URL=TEST|LIVE URL
+PLEDGE_API_KEY=YOUR_TEST_API_KEY
+PLEDGE_API_URL=https://api.pledge.io/test/v1
 ```
-
-Test API URL (uses test data): https://api.pledge.io/test/v1.  
-Live API URL (uses production data): https://api.pledge.io/v1.  
-
 
 4. Start development server
 ```

@@ -16,47 +16,75 @@
               </div>
             </div>
           </div>
-          <div class="mt-8">
-            <!-- include order-status-card template -->
-            <%- include('../partials/order-status-card', { order: order }) %>
+          <div id="order-content">
+            <div class="mt-8">
+              <!-- include order-status-card template -->
+              <%- include('../partials/order-status-card', { order: order }) %>
+            </div>
+            <div
+              class="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 mt-8"
+            >
+              <table class="min-w-full divide-y divide-gray-200">
+                <tbody class="divide-y divide-gray-200">
+                  <tr class="bg-gray-100">
+                    <td
+                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900"
+                    >
+                      Sub total
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                      <%= order.price.currency %> <%= order.price.amount %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                    >
+                      Fees
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                      TODO
+                    </td>
+                  </tr>
+                  <tr class="bg-gray-100">
+                    <td
+                      class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                    >
+                      Total
+                    </td>
+                    <td class="whitespace-nowrap px-4 py-5 text-gray-700">
+                      <%= order.price.currency %> <%= order.price.amount %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <% if(order.status === 'PLACED' || order.status === 'QUOTED'){ %>
+            <div>
+              <button
+                  type="button"
+                  id="order-simulate-payment"
+                  data-order-id="<%= order.id %>"
+                  class="mt-4 mb-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4"
+                >
+                  <span class="text-sm font-medium text-white">Simulate successful payment</span>
+                </button>
+              </div>
+            </div>
+            <% } %>
           </div>
-          <div
-            class="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 mt-8"
-          >
-            <table class="min-w-full divide-y divide-gray-200">
-              <tbody class="divide-y divide-gray-200">
-                <tr class="bg-gray-100">
-                  <td
-                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900"
-                  >
-                    Sub total
-                  </td>
-                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
-                    <%= order.price.currency %> <%= order.price.amount %>
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
-                  >
-                    Fees
-                  </td>
-                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
-                    TODO
-                  </td>
-                </tr>
-                <tr class="bg-gray-100">
-                  <td
-                    class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
-                  >
-                    Total
-                  </td>
-                  <td class="whitespace-nowrap px-4 py-5 text-gray-700">
-                    <%= order.price.currency %> <%= order.price.amount %>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div id="order-processing" class="invisible absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <svg class="h-6 w-6 animate-spin inline-block mr-2" viewBox="3 3 18 18">
+              <path
+                class="hidden"
+                d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"></path>
+              <path
+                class="fill-blue"
+                d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"></path>
+            </svg>
+            <span class="text-gray-500">
+              Processing payment
+            </span>                   
           </div>
         </div>
       </div>

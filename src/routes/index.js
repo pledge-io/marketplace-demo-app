@@ -1,6 +1,11 @@
 import portfoliosRoute from './portfolios'
-import portfolioRoute from './portfolio'
-import projectRoute from './project'
-import ordersRoute from './order'
+import projectsRoute from './projects'
+import checkoutRoute from './checkout'
+import ordersRoute from './orders'
 
-export default [portfoliosRoute, portfolioRoute, projectRoute, ordersRoute]
+export default [
+  portfoliosRoute,
+  projectsRoute,
+  checkoutRoute,
+  ordersRoute
+]

@@ -1,13 +1,10 @@
-import { pledgeApi } from '../services/pledge'
-
-const { PLEDGE_API_URL } = process.env
+import { getProjectById } from '../services/pledge'
 
 export async function projectController (req, res, next) {
   try {
-    const response = await pledgeApi.get(`${PLEDGE_API_URL}/projects/${req.params.projectId}`)
-    const project = response.data
+    const project = await getProjectById(req.params.projectId)
 
-    res.render('pages/project', { project: { ...project, removal: true, avoidance: true } })
+    res.render('pages/project', { project })
   } catch (error) {
     next(error)
   }

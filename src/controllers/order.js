@@ -1,27 +1,28 @@
-import { pledgeApi } from '../services/pledge'
+import { getHATEOASLink, getOrderById, simulateOrderPayment } from '../services/pledge'
 
-const { PLEDGE_API_URL } = process.env
-
-export async function ordersController (req, res, next) {
+export async function orderController (req, res, next) {
   try {
-    const response = await pledgeApi.get(`${PLEDGE_API_URL}/orders`, {
-      params: {
-        limit: 7,
-        offset: 0
+    const order = await getOrderById(req.params.orderId)
+    const portfolio = await getHATEOASLink(order.portfolio.links.self.href)
+
+    res.render('pages/order', {
+      order: {
+        ...order,
+        portfolio
       }
     })
-
-    res.render('pages/orders', { orders: response.data.data })
   } catch (error) {
     next(error)
   }
 }
 
-export async function orderController (req, res, next) {
-  const response = await pledgeApi.get(
-    `${PLEDGE_API_URL}/orders/${req.params.orderId}`
-  )
-  const order = response.data
+export async function orderSimulatePayment (req, res, next) {
+  try {
+    const { orderId } = req.params
+    await simulateOrderPayment(orderId)
 
-  res.render('pages/order', { order })
+    res.json({ message: 'Payment successful' })
+  } catch (error) {
+    next(error)
+  }
 }

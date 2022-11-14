@@ -1,17 +1,10 @@
-import { pledgeApi } from '../services/pledge'
-
-const { PLEDGE_API_URL } = process.env
+import { getPortfolios } from '../services/pledge'
 
 export async function portfoliosController (req, res, next) {
   try {
-    const result = await pledgeApi.get(`${PLEDGE_API_URL}/portfolios`, {
-      params: {
-        limit: 2,
-        offset: 0
-      }
-    })
+    const portfolios = await getPortfolios()
 
-    res.render('pages/portfolios', { portfolios: result.data.data })
+    res.render('pages/portfolios', { portfolios })
   } catch (error) {
     next(error)
   }
