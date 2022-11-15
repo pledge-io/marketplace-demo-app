@@ -2,19 +2,21 @@
 <html>
   <%- include('../partials/head') %>
   <body>
-    <%- include('../partials/menu') %>
-    <section>
-      <div
-        class="mx-auto max-w-screen-md px-6 pb-8 pt-20 border-solid border border-gray-200 border-t-0"
-      >
-        <h1 class="font-medium leading-tight text-3xl mt-0 mb-2">
-          Choose a portfolio
-        </h1>
-        <div class="mt-8 grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2">
-          <% for (let portfolio of portfolios) { %> <%-
-          include('../partials/portfolio-card', { portfolio }) %> <% } %>
+    <div class="max-w-2xl mx-auto">
+      <%- include('../partials/menu') %>
+      <section>
+        <div
+          class="px-6 pb-6 border-solid border border-gray-200 border-t-0 rounded-b"
+        >
+          <h1 class="font-medium leading-tight text-3xl mt-0 mb-2 pt-20">
+            Choose a portfolio
+          </h1>
+          <div class="mt-8 grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2">
+            <% for (let portfolio of portfolios) { %> <%-
+            include('../partials/portfolio-card', { portfolio }) %> <% } %>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </body>
 </html>
