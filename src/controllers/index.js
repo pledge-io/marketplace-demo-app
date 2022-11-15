@@ -1,6 +1,10 @@
-export { ordersController } from './orders'
-export { orderController, orderSimulatePayment } from './order'
 export { portfoliosController } from './portfolios'
 export { portfolioController } from './portfolio'
 export { projectController } from './project'
-export { checkoutController, processCheckoutController } from './checkout'
+export { ordersController } from './orders'
+export {
+  orderController,
+  orderSimulatePayment,
+  orderProcessController,
+  orderCheckoutController
+} from './order'

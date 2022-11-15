@@ -1,4 +1,4 @@
-import { getHATEOASLink, getOrderById, simulateOrderPayment } from '../services/pledge'
+import { getHATEOASLink, getOrderById, simulateOrderPayment, placeOrderByWeight, getPortfolioById } from '../services/pledge'
 
 export async function orderController (req, res, next) {
   try {
@@ -16,12 +16,51 @@ export async function orderController (req, res, next) {
   }
 }
 
+export async function orderCheckoutController (req, res, next) {
+  try {
+    const portfolio = await getPortfolioById(req.params.portfolioId)
+
+    res.render('pages/order-checkout', { portfolio })
+  } catch (error) {
+    next(error)
+  }
+}
+
+export async function orderProcessController (req, res, next) {
+  try {
+    const { portfolioId } = req.params
+    const quantity = Number(req.body.quantity)
+
+    if (quantity < 3) {
+      return res.status(400).json({ message: 'Invalid quantity, minimum order is 3 kilos' })
+    }
+
+    const order = await placeOrderByWeight(portfolioId, quantity)
+    const portfolio = await getHATEOASLink(order.portfolio.links.self.href)
+
+    res.render('pages/order', {
+      order: {
+        ...order,
+        portfolio
+      }
+    })
+  } catch {
+    res.sendStatus(500).json({ message: 'Something went wrong' })
+  }
+}
+
 export async function orderSimulatePayment (req, res, next) {
   try {
     const { orderId } = req.params
-    await simulateOrderPayment(orderId)
+    const order = await simulateOrderPayment(orderId)
+    const portfolio = await getHATEOASLink(order.portfolio.links.self.href)
 
-    res.json({ message: 'Payment successful' })
+    res.render('pages/order', {
+      order: {
+        ...order,
+        portfolio
+      }
+    })
   } catch (error) {
     next(error)
   }

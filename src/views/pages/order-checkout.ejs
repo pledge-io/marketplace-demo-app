@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/menu') %>
+    <section>
+      <div
+        class="mx-auto max-w-screen-md px-6 pb-8 border-solid border border-gray-200 border-t-0"
+      >
+        <%- include('../partials/back-button') %>
+        <div class="flex flex-col relative">
+          <div class="sticky top-0">
+            <div class="flex justify-between">
+              <div class="max-w-[35ch]">
+                <h1 class="text-2xl font-bold">Checkout</h1>
+              </div>
+            </div>
+          </div>
+          <div id="checkout-form">
+            <form id="order-checkout-form" action="/orders/checkout/<%= portfolio.id %>" method="post">
+              <div class="mt-8">
+                <article class="rounded-xl border border-gray-200 bg-white mb-4">
+                  <div class="flex items-start p-6">
+                    <a href="#" class="block shrink-0">
+                      <img
+                        alt="Image project <%= portfolio.name %>"
+                        class="h-14 w-14 rounded-lg object-cover"
+                        src="<%= _.get(portfolio, 'media.0') %>"
+                      />
+                    </a>
+
+                    <div class="ml-4">
+                      <h3 class="font-medium sm:text-lg">
+                        <%= portfolio.name %>
+                      </h3>
+                      <p class="text-sm text-gray-700">
+                        <%= portfolio.currency %> <%= portfolio.price_per_kg %> kg
+                      </p>
+                      <div class="w-full space-y-0.5 mt-4">
+                        <label
+                          for="checkout-quantity"
+                          class="text-sm text-gray-700"
+                          >Quantity</label
+                        >
+                        <div class="relative">
+                          <input
+                            min="3"
+                            type="number"
+                            id="checkout-quantity"
+                            name="quantity"
+                            data-portfolio="<%= portfolio.id %>"
+                            data-currency="<%= portfolio.currency %>"
+                            data-price="<%= portfolio.price_per_kg %>"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue focus:blue block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
+                          />
+                          <div
+                            class="pointer-events-none text-sm absolute inset-y-0 right-0 flex items-center pr-2.5"
+                          >
+                            kg
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div
+                class="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 mt-8"
+              >
+                <table class="min-w-full divide-y divide-gray-200">
+                  <tbody class="divide-y divide-gray-200">
+                    <tr class="bg-gray-100">
+                      <td
+                        class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                      >
+                        Total
+                      </td>
+                      <td
+                        class="whitespace-nowrap px-4 py-5 text-gray-700"
+                        id="checkout-total"
+                      >
+                        <%= portfolio.currency %> 0.00
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  id="checkout-buy-button"
+                  class="mt-4 mb-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4"
+                >
+                  <span class="text-sm font-medium text-white">Buy Offsets</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div id="checkout-processing" class="invisible absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <svg class="h-6 w-6 animate-spin inline-block mr-2" viewBox="3 3 18 18">
+              <path
+                class="hidden"
+                d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"></path>
+              <path
+                class="fill-blue"
+                d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"></path>
+            </svg>
+            <span class="text-gray-500">
+              Processing order
+            </span>                   
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

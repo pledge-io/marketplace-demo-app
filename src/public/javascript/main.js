@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Update checkout totals
+  const checkoutForm = document.getElementById('order-checkout-form')
   const checkoutQuantityInput = document.getElementById('checkout-quantity')
   const simulatePaymentButton = document.getElementById('order-simulate-payment')
 
@@ -8,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document
       .getElementById('checkout-quantity')
       .addEventListener('keyup', calculateOrder)
+  }
 
+  if (checkoutForm) {
     // handle buy button click
-    document
-      .getElementById('checkout-buy-button')
-      .addEventListener('click', placeOrder)
+    checkoutForm.addEventListener('submit', placeOrder)
   }
 
   if (simulatePaymentButton) {
@@ -25,62 +26,23 @@ document.addEventListener('DOMContentLoaded', function () {
 function calculateOrder (event) {
   const quantity = event.target.value
   const { price, currency } = event.target.dataset
-  const subTotal = (quantity * price).toFixed(2)
-  const total = subTotal
+  const total = (quantity * price).toFixed(2)
 
-  document.getElementById(
-    'checkout-subtotal'
-  ).innerHTML = `${currency} ${subTotal}`
   document.getElementById(
     'checkout-total'
   ).innerHTML = `${currency} ${total}`
 }
 
-function placeOrder () {
-  const quantityInput = document.getElementById('checkout-quantity')
-  const quantity = quantityInput.value
-  const portfolioId = quantityInput.dataset.portfolio
-
-  if (quantity <= 0) {
-    return
-  }
-
+function placeOrder (event) {
+  event.preventDefault()
   toggleCheckoutProcessingState(true)
-
-  fetch(`/checkout/${portfolioId}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ quantity })
-  })
-    .then((response) => response.json())
-    .then((order) => {
-      setTimeout(() => {
-        window.location.href = `/orders/${order.id}`
-      }, 2000)
-    })
-    .catch((error) => {
-      console.log(error)
-      toggleCheckoutProcessingState(false)
-    })
+  document.getElementById('order-checkout-form').submit()
 }
 
-function simulateSimulateSuccessfulPayment () {
-  const simulatePaymentButton = document.getElementById('order-simulate-payment')
-  const orderId = simulatePaymentButton.dataset.orderId
-
+function simulateSimulateSuccessfulPayment (event) {
+  event.preventDefault()
   toggleOrderProcessingState(true)
-  fetch(`/orders/${orderId}/pay`, { method: 'PUT' })
-    .then(() => {
-      setTimeout(() => {
-        window.location.reload()
-      }, 2000)
-    })
-    .catch((error) => {
-      console.log(error)
-      toggleOrderProcessingState(false)
-    })
+  document.getElementById('order-simulate-payment-form').submit()
 }
 
 function toggleCheckoutProcessingState (state) {
