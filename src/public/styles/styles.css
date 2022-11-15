@@ -8,6 +8,10 @@
     color: #190033;
   }
 
+  body {
+    padding: 24px;
+  }
+
   a {
     @apply text-aubergine underline    
   }
@@ -22,8 +26,10 @@
   input[type=number] {
     -moz-appearance: textfield;
   }
-}
 
-body {
-  padding: 72px;  
+  @screen md {
+    body {
+      padding: 72px;
+    }
+  }
 }
