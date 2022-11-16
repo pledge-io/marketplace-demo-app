@@ -41,7 +41,7 @@
     "start": "NODE_ENV=production npm-run-all build server",
     "build": "npm-run-all clean transpile tailwind:css",
     "server": "nodemon ./.dist/server",
-    "deploy:lambda": "serverless deploy",
+    "deploy:lambda": "NODE_ENV=production npm run build && serverless deploy",
     "transpile": "babel ./src --out-dir .dist --extensions '.js,.css' --copy-files --no-copy-ignored",
     "transpile:watch": "npm run transpile -- --watch",
     "tailwind:css": "postcss ./src/public/styles/styles.css -o ./.dist/public/styles/styles.css",
