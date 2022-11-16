@@ -12,7 +12,7 @@ if (!PLEDGE_API_URL) {
   throw new Error('PLEDGE_API_URL environment variable is not defined')
 }
 
-export const pledgeApi = axios.create({
+const pledgeApi = axios.create({
   baseURL: `${PLEDGE_API_URL}`,
   headers: {
     'X-Api-Key': PLEDGE_API_KEY
