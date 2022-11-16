@@ -5,7 +5,11 @@ It is built using [NodeJs](https://nodejs.org/), [Express](https://expressjs.com
 ## Live demo
 <a href="https://marketplace.demos.sandbox.pledge.dev" target="_blank">Offsetting Marketplace Demo</a>
 
-## How to run locally
+## Getting started
+1. [Sign up](https://app.pledge.io/auth/sign-up)
+2. Grab an [API key](https://app.pledge.io/test/developers)
+
+## Running locally
 
 1. Clone the repository
 ```
