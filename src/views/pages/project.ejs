@@ -14,26 +14,26 @@
               <img
                 alt="Les Paul"
                 src="<%= _.get(project, 'media.0') %>"
-                class="aspect-video w-full rounded-xl object-cover"
+                class="aspect-video w-full rounded object-cover"
               />
             </div>
             <div class="my-8">
-              <span
-                class="rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5"
+              <div
+                class="inline-block whitespace-nowrap rounded-full px-3 text-sm leading-6 bg-cornflower mr-1.5"
               >
                 <%= project.project_type.category %>
-              </span>
-              <span
-                class="rounded-full bg-purple-100 px-2.5 py-0.5 text-sm bg-cornflower mr-1.5"
+            </div>
+              <div
+                class="inline-block whitespace-nowrap rounded-full px-3 text-sm leading-6 bg-cornflower mr-1.5"
               >
                 <%= project.project_type.name %>
-              </span>
+          </div>
             </div>
 
             <div class="sticky top-0">
               <div class="flex justify-between">
                 <div class="max-w-[35ch]">
-                  <h1 class="text-2xl font-bold">
+                  <h1 class="text-2xl font-medium">
                     Fun Product That Does Something Cool
                   </h1>
                   <p><%= project.country.name %></p>
@@ -74,7 +74,7 @@
                 <table class="min-w-full divide-y divide-gray-200">
                   <tbody class="divide-y divide-gray-200">
                     <tr class="bg-gray-100">
-                      <td class="px-4 py-5 font-medium text-gray-900">
+                      <td class="px-4 py-5 text-gray-700">
                         Mechanism
                       </td>
                       <td class="px-4 py-5 text-gray-700">
@@ -90,7 +90,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td class="px-4 py-5 font-medium text-gray-900 py-5">
+                      <td class="px-4 py-5 text-gray-700 py-5">
                         Developer
                       </td>
                       <td class="px-4 py-5 text-gray-700">
@@ -98,7 +98,7 @@
                       </td>
                     </tr>
                     <tr class="bg-gray-100">
-                      <td class="px-4 py-5 font-medium text-gray-900 py-5">
+                      <td class="px-4 py-5 text-gray-700 py-5">
                         Website
                       </td>
                       <td class="px-4 py-5 text-gray-700">
@@ -111,7 +111,7 @@
                     </tr>
                     <tr>
                       <td
-                        class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                        class="whitespace-nowrap px-4 py-5 text-gray-700 py-5"
                       >
                         Registry
                       </td>
@@ -121,7 +121,7 @@
                     </tr>
                     <tr class="bg-gray-100">
                       <td
-                        class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5 align-top"
+                        class="whitespace-nowrap px-4 py-5 text-gray-700 py-5 align-top"
                       >
                         Sustainable Development Goals
                       </td>

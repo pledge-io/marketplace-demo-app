@@ -8,7 +8,7 @@
         <div
           class="px-6 pb-6 border-solid border border-gray-200 border-t-0 rounded-b"
         >
-          <h1 class="font-medium leading-tight text-3xl mt-0 mb-2 pt-20">
+          <h1 class="font-medium text-2xl leading-tight mt-0 mb-2 pt-20">
             Order history
           </h1>
           <div
@@ -63,7 +63,7 @@
                   <td
                     class="whitespace-nowrap px-4 py-5 text-gray-700 font-medium"
                   >
-                    <a href="/orders/<%= order.id %>">View details</a>
+                    <a class="text-base" href="/orders/<%= order.id %>">View details</a>
                   </td>
                 </tr>
                 <% } %>

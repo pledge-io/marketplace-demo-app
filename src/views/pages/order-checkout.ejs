@@ -13,7 +13,7 @@
             <div class="sticky top-0">
               <div class="flex justify-between">
                 <div class="max-w-[35ch]">
-                  <h1 class="text-2xl font-bold">Checkout</h1>
+                  <h1 class="font-medium text-2xl">Checkout</h1>
                 </div>
               </div>
             </div>
@@ -24,9 +24,7 @@
                 method="post"
               >
                 <div class="mt-8">
-                  <article
-                    class="rounded-xl border border-gray-200 bg-white mb-4"
-                  >
+                  <article class="rounded border border-gray-200 bg-white mb-4">
                     <div class="flex items-start p-6">
                       <a href="#" class="block shrink-0">
                         <img
@@ -36,18 +34,16 @@
                         />
                       </a>
 
-                      <div class="ml-4">
-                        <h3 class="font-medium sm:text-lg">
+                      <div class="ml-6">
+                        <h3 class="text-lg font-semibold truncate">
                           <%= portfolio.name %>
                         </h3>
-                        <p class="text-sm text-gray-700">
+                        <p class="text-gray-600 my-1">
                           <%= portfolio.currency %> <%= portfolio.price_per_kg
                           %> kg
                         </p>
                         <div class="w-full space-y-0.5 mt-4">
-                          <label
-                            for="checkout-quantity"
-                            class="text-sm text-gray-700"
+                          <label for="checkout-quantity" class="text-gray-700"
                             >Quantity</label
                           >
                           <div class="relative">
@@ -59,11 +55,11 @@
                               data-portfolio="<%= portfolio.id %>"
                               data-currency="<%= portfolio.currency %>"
                               data-price="<%= portfolio.price_per_kg %>"
-                              class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue focus:blue block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              class="bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue focus:blue block w-full p-2.5 mt-1.5"
                               required
                             />
                             <div
-                              class="pointer-events-none text-sm absolute inset-y-0 right-0 flex items-center pr-2.5"
+                              class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2.5"
                             >
                               kg
                             </div>
@@ -80,12 +76,12 @@
                     <tbody class="divide-y divide-gray-200">
                       <tr class="bg-gray-100">
                         <td
-                          class="whitespace-nowrap px-4 py-5 font-medium text-gray-900 py-5"
+                          class="whitespace-nowrap px-4 py-5 text-gray-700 py-5"
                         >
                           Total
                         </td>
                         <td
-                          class="whitespace-nowrap px-4 py-5 text-gray-700"
+                          class="whitespace-nowrap px-4 py-5 text-gray-700 text-right"
                           id="checkout-total"
                         >
                           <%= portfolio.currency %> 0.00
@@ -98,9 +94,9 @@
                   <button
                     type="submit"
                     id="checkout-buy-button"
-                    class="mt-4 flex w-full items-center justify-center rounded bg-blue px-8 py-4"
+                    class="mt-4 flex w-full items-center justify-center rounded bg-blue px-6 py-4"
                   >
-                    <span class="text-sm font-medium text-white"
+                    <span class="text-base text-white font-medium"
                       >Buy Offsets</span
                     >
                   </button>
