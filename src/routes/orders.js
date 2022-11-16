@@ -2,9 +2,9 @@ import express from 'express'
 import {
   orderController,
   ordersController,
-  orderSimulatePayment,
   orderProcessController,
-  orderCheckoutController
+  orderCheckoutController,
+  orderSimulatePaymentController
 } from '../controllers'
 
 const router = express.Router()
@@ -22,6 +22,6 @@ router.get('/orders/checkout/:portfolioId', orderCheckoutController)
 router.post('/orders/checkout/:portfolioId', orderProcessController)
 
 /* PUT order payment */
-router.put('/orders/:orderId/pay', orderSimulatePayment)
+router.put('/orders/:orderId/pay', orderSimulatePaymentController)
 
 export default router

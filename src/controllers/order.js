@@ -49,7 +49,7 @@ export async function orderProcessController (req, res, next) {
   }
 }
 
-export async function orderSimulatePayment (req, res, next) {
+export async function orderSimulatePaymentController (req, res, next) {
   try {
     const { orderId } = req.params
     const order = await simulateOrderPayment(orderId)
