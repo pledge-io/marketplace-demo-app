@@ -1,9 +1,19 @@
+<% const isSoldOut = locals.isPortfolioSoldOut(portfolio) %>
+
 <div class="relative block border border-gray-200 rounded overflow-hidden">
-  <img
-    alt="Toy"
-    src="<%= _.get(portfolio, 'media.0') %>"
-    class="h-56 w-full object-cover"
-  />
+  <div class="relative">
+    <img
+      alt="Toy"
+      src="<%= _.get(portfolio, 'media.0') %>"
+      class="h-56 w-full object-cover"
+    />
+    <% if(isSoldOut) { %>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <%- include('../partials/sold-out-tag') %>
+      </div>
+    <% } %>    
+  </div>
+  
   <div class="p-6">
     <h3 class="mt-1 text-lg font-semibold truncate"><%= portfolio.name %></h3>
     <p class="text-gray-600 my-1">
@@ -11,7 +21,7 @@
     </p>
     <a
       href="/orders/checkout/<%= portfolio.id %>"
-      class="mt-4 flex w-full items-center justify-center rounded bg-blue px-6 py-4 no-underline"
+      class="mt-4 flex w-full items-center justify-center rounded bg-blue px-6 py-4 no-underline <%= isSoldOut ? 'pointer-events-none opacity-30' : '' %>"
     >
       <span class="text-base text-white font-medium">Buy Offsets</span>
     </a>

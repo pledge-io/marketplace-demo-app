@@ -24,5 +24,8 @@ export function setLocals (req, res, next) {
   res.locals._ = _
   res.locals.url = req.baseUrl
   res.locals.SDGS_MAP = SDGS_MAP
+  res.locals.isPortfolioSoldOut = (portfolio) => {
+    return portfolio.available_weight_kg <= 2
+  }
   next()
 }
