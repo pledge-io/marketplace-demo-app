@@ -24,8 +24,7 @@ const pledgeApi = got.extend({
 })
 
 // Helpers
-export function getHATEOASLink(link) {
-  // Applying caching to HATEOAS links is trickier as entity could be anything. what is the TTL?
+export function getHATEOASLink (link) {
   return pledgeApi.extend({ prefixUrl: '' }).get(link, { baseURL: '' }).json()
 }
 
@@ -41,7 +40,6 @@ export async function getPortfolios () {
     }
   }).json()
 
-  console.log('getPortfolios', result)
   cache.set('portfolios', result.data, FIVE_MINUTES)
 
   return result.data
@@ -55,8 +53,6 @@ export async function getPortfolioById (portfolioId) {
   }
 
   const result = await pledgeApi.get(path).json()
-
-  console.log({result})
 
   cache.set(path, result, FIVE_MINUTES)
 
