@@ -42,6 +42,9 @@
                           <%= portfolio.currency %> <%= portfolio.price_per_kg
                           %> kg
                         </p>
+                        <p class="text-gray-600 my-1">
+                          <%= String(Math.round(portfolio.available_weight_kg)).replace(/(.)(?=(\d{3})+$)/g,'$1,') %> kg offsets available
+                        </p>
                         <div class="w-full space-y-0.5 mt-4">
                           <label for="checkout-quantity" class="text-gray-700"
                             >Quantity</label
