@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import packageJson from '../../package.json'
 
 const SDGS_MAP = {
   NP: 'No Poverty',
@@ -27,5 +28,6 @@ export function setLocals (req, res, next) {
   res.locals.isPortfolioSoldOut = (portfolio) => {
     return portfolio.available_weight_kg <= 2
   }
+  res.locals.version = packageJson.version
   next()
 }
