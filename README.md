@@ -3,7 +3,7 @@ This application shows how to create a marketplace for carbon offsets powered by
 It is built using [NodeJs](https://nodejs.org/), [Express](https://expressjs.com/), [EJS](https://ejs.co/) and [TailwindCSS](https://tailwindcss.com/).  
 
 ## Live demo
-<a href="https://marketplace.demos.sandbox.pledge.dev" target="_blank">Offsetting Marketplace Demo</a>
+<a href="https://marketplace.demos.pledge.io" target="_blank">Offsetting Marketplace Demo</a>
 
 ## Getting started
 1. [Sign up](https://app.pledge.io/auth/sign-up)
