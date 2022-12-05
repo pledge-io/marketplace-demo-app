@@ -52,7 +52,11 @@ export async function getPortfolioById (portfolioId) {
     return cache.get(path)
   }
 
-  const result = await pledgeApi.get(path).json()
+  const result = await pledgeApi.get(path, {
+    searchParams: {
+      expand: true
+    }
+  }).json()
 
   cache.set(path, result, FIVE_MINUTES)
 

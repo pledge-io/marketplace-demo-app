@@ -2,21 +2,21 @@
   <div class="flex items-start p-6">
     <a href="#" class="block shrink-0">
       <img
-        alt="Image project <%= project.name %>"
+        alt="Image project <%= allocation.project.name %>"
         class="h-14 w-14 rounded-lg object-cover"
-        src="<%= _.get(project, 'media.0') %>"
+        src="<%= _.get(allocation.project, 'media.0') %>"
       />
     </a>
     <div class="ml-6">
-      <h3 class="font-semibold"><%= project.name %></h3>
+      <h3 class="font-semibold"><%= allocation.project.name %></h3>
       <p class="text-sm text-gray-700 line-clamp-2">
-        <%= project.description %>
+        <%= allocation.project.description %>
       </p>
       <p class="text-sm text-gray-700 line-clamp-2 my-3">
-        Allocation: <%= project.allocation.percentage %>%
+        Allocation: <%= allocation.percentage %>%
       </p>
       <div class="w-full">
-        <a class="text-base font-medium" href="/projects/<%= project.id %>">View project</a>
+        <a class="text-base font-medium" href="/projects/<%= allocation.project.id %>">View project</a>
       </div>
     </div>
   </div>
