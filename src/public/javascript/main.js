@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (simulatePaymentButton) {
     // handle simulate payment button click
     simulatePaymentButton
-      .addEventListener('click', simulateSimulateSuccessfulPayment)
+      .addEventListener('click', simulateSuccessfulPayment)
   }
 })
 
@@ -39,10 +39,10 @@ function placeOrder (event) {
   document.getElementById('order-checkout-form').submit()
 }
 
-function simulateSimulateSuccessfulPayment (event) {
+function simulateSuccessfulPayment (event) {
   event.preventDefault()
   toggleOrderProcessingState(true)
-  document.getElementById('order-simulate-payment-form').submit()
+  document.getElementById('order-simulate-payment').submit()
 }
 
 function toggleCheckoutProcessingState (state) {

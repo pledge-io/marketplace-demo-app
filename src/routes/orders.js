@@ -22,6 +22,6 @@ router.get('/orders/checkout/:portfolioId', orderCheckoutController)
 router.post('/orders/checkout/:portfolioId', orderProcessController)
 
 /* PUT order payment */
-router.put('/orders/:orderId/pay', orderSimulatePaymentController)
+router.post('/orders/:orderId/pay', orderSimulatePaymentController)
 
 export default router

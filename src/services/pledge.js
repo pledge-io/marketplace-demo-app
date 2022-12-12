@@ -73,7 +73,7 @@ export async function getProjectById (projectId) {
   const result = await pledgeApi.get(path).json()
 
   // project's data rarely change, let's cache them for a day
-  cache.set(path, result.data, ONE_DAY)
+  cache.set(path, result, ONE_DAY)
 
   return result
 }
@@ -97,12 +97,14 @@ export function simulateOrderPayment (orderId) {
   return pledgeApi.put(`orders/${orderId}/pay`).json()
 }
 
-export function placeOrderByWeight (portfolioId, amountInKg) {
-  return pledgeApi.post('orders/weight', {
-    portfolio_id: portfolioId,
-    amount_in_kg: amountInKg,
-    metadata: {
-      source: 'pledge-io-marketplace-demo'
+export async function placeOrderByWeight (portfolioId, amountInKg) {
+  return await pledgeApi.post('orders/weight', {
+    json: {
+      portfolio_id: portfolioId,
+      amount_in_kg: amountInKg,
+      metadata: {
+        source: 'pledge-io-marketplace-demo'
+      }
     }
   }).json()
 }
