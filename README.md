@@ -13,7 +13,7 @@ It is built using [NodeJs](https://nodejs.org/), [Express](https://expressjs.com
 
 1. Clone the repository
 ```
-git clone https://github.com/stripe-samples/connect-onboarding-for-standard.git
+git clone https://github.com/pledge-io/marketplace-demo-app.git
 ```
 
 2. Install dependencies
@@ -30,4 +30,9 @@ PLEDGE_API_URL=https://api.pledge.io/test/v1
 4. Start development server
 ```
 npm run dev
+```
+
+5.  Open the application in your browser
+```
+Go to http://localhost:3000
 ```
