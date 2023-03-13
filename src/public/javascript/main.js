@@ -1,5 +1,3 @@
-const SERVICE_FEE = 0.125
-
 document.addEventListener('DOMContentLoaded', function () {
   // Update checkout totals
   const checkoutForm = document.getElementById('order-checkout-form')
@@ -28,8 +26,14 @@ document.addEventListener('DOMContentLoaded', function () {
 function calculateOrder (event) {
   const quantity = event.target.value
   const { price, currency } = event.target.dataset
+
+  let pledgeServiceFee = parseFloat(PLEDGE_SERVICE_FEE)
+  if (isNaN(pledgeServiceFee)) {
+    pledgeServiceFee = 0
+  }
+
   const subtotal = quantity * price
-  const serviceFee = subtotal * SERVICE_FEE
+  const serviceFee = subtotal * pledgeServiceFee
   const total = subtotal + serviceFee
 
   document.getElementById(

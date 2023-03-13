@@ -25,6 +25,7 @@ npm install
 ```
 PLEDGE_API_KEY=YOUR_TEST_API_KEY
 PLEDGE_API_URL=https://api.pledge.io/test/v1
+PLEDGE_SERVICE_FEE=0.125
 ```
 
 4. Start development server
