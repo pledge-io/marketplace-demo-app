@@ -37,31 +37,31 @@
                       <td
                         class="whitespace-nowrap px-4 py-5 text-gray-700 text-right"
                       >
-                        <%= order.cost.currency %> <%= order.cost.subtotal %>
+                        <%= order.cost.currency %> <%= order.cost.subtotal.toFixed(2) %>
                       </td>
                     </tr>
                     <tr>
                       <td
-                              class="whitespace-nowrap px-4 py-5 text-gray-700 py-5"
+                        class="whitespace-nowrap px-4 py-5 text-gray-700 py-5"
                       >
                         Pledge service fee
                       </td>
                       <td
-                              class="whitespace-nowrap px-4 py-5 text-gray-700 text-right"
+                        class="whitespace-nowrap px-4 py-5 text-gray-700 text-right"
                       >
-                        <%= order.cost.currency %> <%= order.cost.service_fee %>
+                        <%= order.cost.currency %> <%= order.cost.service_fee.toFixed(2) %>
                       </td>
                     </tr>
                     <tr class="bg-gray-100">
                       <td
-                              class="whitespace-nowrap px-4 py-5 text-gray-700 py-5"
+                        class="whitespace-nowrap px-4 py-5 text-gray-700 py-5"
                       >
                         Total
                       </td>
                       <td
-                              class="whitespace-nowrap px-4 py-5 text-gray-700 text-right"
+                        class="whitespace-nowrap px-4 py-5 text-gray-700 text-right"
                       >
-                        <%= order.cost.currency %> <%= order.cost.total %>
+                        <%= order.cost.currency %> <%= order.cost.total.toFixed(2) %>
                       </td>
                     </tr>
                   </tbody>

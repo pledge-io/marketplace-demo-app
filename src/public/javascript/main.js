@@ -1,3 +1,5 @@
+const SERVICE_FEE = 0.125
+
 document.addEventListener('DOMContentLoaded', function () {
   // Update checkout totals
   const checkoutForm = document.getElementById('order-checkout-form')
@@ -26,11 +28,21 @@ document.addEventListener('DOMContentLoaded', function () {
 function calculateOrder (event) {
   const quantity = event.target.value
   const { price, currency } = event.target.dataset
-  const total = (quantity * price).toFixed(2)
+  const subtotal = quantity * price
+  const serviceFee = subtotal * SERVICE_FEE
+  const total = subtotal + serviceFee
+
+  document.getElementById(
+    'checkout-subtotal'
+  ).innerHTML = `${currency} ${subtotal.toFixed(2)}`
+
+  document.getElementById(
+    'checkout-service-fee'
+  ).innerHTML = `${currency} ${serviceFee.toFixed(2)}`
 
   document.getElementById(
     'checkout-total'
-  ).innerHTML = `${currency} ${total}`
+  ).innerHTML = `${currency} ${total.toFixed(2)}`
 }
 
 function placeOrder (event) {
