@@ -32,21 +32,21 @@ function calculateOrder (event) {
     pledgeServiceFee = 0
   }
 
-  const subtotal = quantity * price
-  const serviceFee = subtotal * pledgeServiceFee
-  const total = subtotal + serviceFee
+  const subtotal = Number((quantity * price).toFixed(2))
+  const serviceFee = Number((subtotal * pledgeServiceFee).toFixed(2))
+  const total = Number((subtotal + serviceFee).toFixed(2))
 
   document.getElementById(
     'checkout-subtotal'
-  ).innerHTML = `${currency} ${subtotal.toFixed(2)}`
+  ).innerHTML = `${currency} ${subtotal}`
 
   document.getElementById(
     'checkout-service-fee'
-  ).innerHTML = `${currency} ${serviceFee.toFixed(2)}`
+  ).innerHTML = `${currency} ${serviceFee}`
 
   document.getElementById(
     'checkout-total'
-  ).innerHTML = `${currency} ${total.toFixed(2)}`
+  ).innerHTML = `${currency} ${total}`
 }
 
 function placeOrder (event) {
