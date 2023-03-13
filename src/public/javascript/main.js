@@ -27,7 +27,7 @@ function calculateOrder (event) {
   const quantity = event.target.value
   const { price, currency } = event.target.dataset
 
-  let pledgeServiceFee = parseFloat(PLEDGE_SERVICE_FEE)
+  let pledgeServiceFee = parseFloat(window.PLEDGE_SERVICE_FEE)
   if (isNaN(pledgeServiceFee)) {
     pledgeServiceFee = 0
   }

@@ -97,11 +97,12 @@ export function simulateOrderPayment (orderId) {
   return pledgeApi.put(`orders/${orderId}/pay`).json()
 }
 
-export async function placeOrderByWeight (portfolioId, amountInKg) {
-  return await pledgeApi.post('orders/weight', {
+export async function placeOrderByWeight (portfolioId, amountInKg, issued0nBehalfOf = undefined) {
+  return pledgeApi.post('orders/weight', {
     json: {
       portfolio_id: portfolioId,
       amount_in_kg: amountInKg,
+      issued_on_behalf_of: issued0nBehalfOf,
       metadata: {
         source: 'pledge-io-marketplace-demo'
       }

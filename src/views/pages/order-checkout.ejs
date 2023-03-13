@@ -29,7 +29,7 @@
                       <a href="#" class="block shrink-0">
                         <img
                           alt="Image project <%= portfolio.name %>"
-                          class="h-14 w-14 rounded-lg object-cover"
+                          class="h-14 w-14 rounded object-cover"
                           src="<%= _.get(portfolio, 'media.0') %>"
                         />
                       </a>
@@ -59,7 +59,7 @@
                               data-portfolio="<%= portfolio.id %>"
                               data-currency="<%= portfolio.currency %>"
                               data-price="<%= portfolio.price_per_kg %>"
-                              class="bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue focus:blue block w-full p-2.5 mt-1.5"
+                              class="bg-gray-50 border border-gray-300 rounded focus:ring-blue focus:blue block w-full p-2.5 mt-1.5"
                               required
                             />
                             <div
@@ -74,7 +74,29 @@
                   </article>
                 </div>
                 <div
-                  class="overflow-hidden overflow-x-auto rounded-lg border border-gray-200 mt-8"
+                  class="rounded border border-gray-200 mt-8 px-4 py-5"
+                >
+                  <div class="whitespace-nowrap">
+                    Change the name that appears on your Pledge offsetting certificate
+                  </div>
+                  <div class="mt-4">
+                    <label for="issued-on-behalf-of" class="text-gray-700">
+                      Issued on behalf of
+                    </label>
+                    <div class="relative">
+                      <input
+                              type="text"
+                              id="issued-on-behalf-of"
+                              name="issued0nBehalfOf"
+                              value="Bamboo Co."
+                              class="bg-gray-50 border border-gray-300 rounded focus:ring-blue focus:blue block w-full p-2.5 mt-1.5"
+                              required
+                      />
+                    </div>
+                </div>
+                </div>
+                <div
+                  class="overflow-hidden overflow-x-auto rounded border border-gray-200 mt-8"
                 >
                   <table class="min-w-full divide-y divide-gray-200">
                     <tbody class="divide-y divide-gray-200">
