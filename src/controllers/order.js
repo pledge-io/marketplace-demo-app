@@ -30,13 +30,13 @@ export async function orderProcessController (req, res, next) {
   try {
     const { portfolioId } = req.params
     const quantity = Number(req.body.quantity)
-    const issued0nBehalfOf = String(req.body.issued0nBehalfOf)
+    const issuedOnBehalfOf = String(req.body.issuedOnBehalfOf)
 
     if (quantity < 3) {
       return res.status(400).json({ message: 'Invalid quantity, minimum order is 3 kilos' })
     }
 
-    const order = await placeOrderByWeight(portfolioId, quantity, issued0nBehalfOf)
+    const order = await placeOrderByWeight(portfolioId, quantity, issuedOnBehalfOf)
     const portfolio = await getHATEOASLink(order.portfolio.links.self.href)
 
     res.render('pages/order', {

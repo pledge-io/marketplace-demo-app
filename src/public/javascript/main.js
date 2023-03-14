@@ -38,15 +38,15 @@ function calculateOrder (event) {
 
   document.getElementById(
     'checkout-subtotal'
-  ).innerHTML = `${currency} ${subtotal}`
+  ).innerHTML = `${currency} ${subtotal.toFixed(2)}`
 
   document.getElementById(
     'checkout-service-fee'
-  ).innerHTML = `${currency} ${serviceFee}`
+  ).innerHTML = `${currency} ${serviceFee.toFixed(2)}`
 
   document.getElementById(
     'checkout-total'
-  ).innerHTML = `${currency} ${total}`
+  ).innerHTML = `${currency} ${total.toFixed(2)}`
 }
 
 function placeOrder (event) {
