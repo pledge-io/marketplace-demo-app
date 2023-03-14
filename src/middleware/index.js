@@ -1,1 +1,1 @@
-export { setLocals } from './locals'
+export { setLocals } from './locals';
