@@ -3,7 +3,7 @@
     <a href="#" class="block shrink-0">
       <img
         alt="Image project <%= order.portfolio.name %>"
-        class="h-14 w-14 rounded-lg object-cover"
+        class="h-14 w-14 rounded object-cover"
         src="<%= _.get(order, 'portfolio.media.0') %>"
       />
     </a>
@@ -11,6 +11,9 @@
     <div class="ml-6">
       <h3 class="text-lg font-semibold truncate"><%= order.portfolio.name %></h3>
       <p class="text-gray-600 my-1"><%= order.id %></p>
+      <% if (order.issued_on_behalf_of) { %>
+        <p class="text-gray-600 my-1">Issued on behalf of: <%= order.issued_on_behalf_of %></p>
+      <% } %>
       <p class="mt-3">
         <%- include('../partials/order-status-tag', { status: order.status }) %>
       </p>

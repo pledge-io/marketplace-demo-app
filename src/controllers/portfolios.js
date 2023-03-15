@@ -1,11 +1,11 @@
-import { getPortfolios } from '../services/pledge'
+import { getPortfolios } from '../services/pledge';
 
-export async function portfoliosController (req, res, next) {
+export async function portfoliosController(req, res, next) {
   try {
-    const portfolios = await getPortfolios()
+    const portfolios = await getPortfolios();
 
-    res.render('pages/portfolios', { portfolios })
+    res.render('pages/portfolios', { portfolios });
   } catch (error) {
-    next(error)
+    next(error);
   }
 }

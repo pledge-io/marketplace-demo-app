@@ -13,7 +13,7 @@
   }
 
   a {
-    @apply text-aubergine underline    
+    @apply text-aubergine underline;
   }
 
   input::-webkit-outer-spin-button,
@@ -23,7 +23,7 @@
   }
 
   /* Firefox */
-  input[type=number] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 

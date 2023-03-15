@@ -1,11 +1,11 @@
-import { getProjectById } from '../services/pledge'
+import { getProjectById } from '../services/pledge';
 
-export async function projectController (req, res, next) {
+export async function projectController(req, res, next) {
   try {
-    const project = await getProjectById(req.params.projectId)
+    const project = await getProjectById(req.params.projectId);
 
-    res.render('pages/project', { project })
+    res.render('pages/project', { project });
   } catch (error) {
-    next(error)
+    next(error);
   }
 }
