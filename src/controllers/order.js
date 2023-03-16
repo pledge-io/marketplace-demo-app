@@ -59,15 +59,8 @@ export async function orderProcessController(req, res, _next) {
 export async function orderSimulatePaymentController(req, res, next) {
   try {
     const { orderId } = req.params;
-    const order = await simulateOrderPayment(orderId);
-    const portfolio = await getHATEOASLink(order.portfolio.links.self.href);
-
-    res.render('pages/order', {
-      order: {
-        ...order,
-        portfolio,
-      },
-    });
+    await simulateOrderPayment(orderId);
+    res.redirect(`/orders/${orderId}`);
   } catch (error) {
     next(error);
   }
